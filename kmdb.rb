@@ -98,4 +98,21 @@ puts ""
 Studio.destroy_all
 Movie.destroy_all
 Actor.destroy_all
-Roles.destroy_all
+Role.destroy_all
+
+
+new_studio = Studio.new
+
+new_studio["name"] = "Warner Bros."
+new_studio.save
+
+
+movie1 = Movie.new
+
+movie1["title"] = "Batman Begins"
+movie1["year_released"] = "2005"
+movie1["rated"] = "PG-13"
+movie1["studio_id"] = "1"
+
+
+
