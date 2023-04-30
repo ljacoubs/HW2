@@ -259,4 +259,3 @@ role15["actor_id"] = actor11["id"]
 role15["character_name"] = "Selina Kyle"
 role15.save
 
-
