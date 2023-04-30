@@ -94,3 +94,8 @@ puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie.
 # TODO!
+
+Studio.destroy_all
+Movie.destroy_all
+Actor.destroy_all
+Roles.destroy_all
