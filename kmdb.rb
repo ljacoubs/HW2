@@ -259,3 +259,20 @@ role15["actor_id"] = actor11["id"]
 role15["character_name"] = "Selina Kyle"
 role15.save
 
+# for contact in apple_contacts
+#     # read each contact row's first_name and last_name columns
+#     first_name = contact["first_name"]
+#     last_name = contact["last_name"]
+#     # display the first_name and last_name
+#     puts "#{first_name} #{last_name}"
+#   end
+
+all_movies = Movie.where({["studio_id"] => studio["name"]})
+
+for movie in all_movies 
+    title = movie["title"]
+    year = movie["year"]
+    rating = movie["rated"]
+    studio = studio["name"]
+    puts "#{title} #{year} #{rating} #{studio}"
+end
