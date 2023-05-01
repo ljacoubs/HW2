@@ -79,18 +79,18 @@
 # TODO!
 
 # Prints a header for the movies output
-puts "Movies"
-puts "======"
-puts ""
+# puts "Movies"
+# puts "======"
+# puts ""
 
 # Query the movies data and loop through the results to display the movies output.
 # TODO!
 
 # Prints a header for the cast output
-puts ""
-puts "Top Cast"
-puts "========"
-puts ""
+# puts ""
+# puts "Top Cast"
+# puts "========"
+# puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie.
 # TODO!
@@ -106,21 +106,21 @@ new_studio.save
 
 movie1 = Movie.new
 movie1["title"] = "Batman Begins"
-movie1["year_released"] = "2005"
+movie1["year_released"] = 2005
 movie1["rated"] = "PG-13"
 movie1["studio_id"] = new_studio["id"]
 movie1.save
 
 movie2 = Movie.new
 movie2["title"] = "The Dark Knight"
-movie2["year_released"] = "2008"
+movie2["year_released"] = 2008
 movie2["rated"] = "PG-13"
 movie2["studio_id"] = new_studio["id"]
 movie2.save
 
 movie3 = Movie.new
 movie3["title"] = "The Dark Knight Rises"
-movie3["year_released"] = "2012"
+movie3["year_released"] = 2012
 movie3["rated"] = "PG-13"
 movie3["studio_id"] = new_studio["id"]
 movie3.save
@@ -267,12 +267,49 @@ role15.save
 #     puts "#{first_name} #{last_name}"
 #   end
 
-all_movies = Movie.where({["studio_id"] => studio["name"]})
+# all_movies = Movie.where({"studio_id" => new_studio["name"]})
+#use where of a list of things
+
+puts "Movies"
+puts "======"
+puts ""
+
+all_movies = Movie.all
 
 for movie in all_movies 
     title = movie["title"]
-    year = movie["year"]
+    year = movie["year_released"]
     rating = movie["rated"]
-    studio = studio["name"]
-    puts "#{title} #{year} #{rating} #{studio}"
+    studio = Studio.find_by({"id" => new_studio["id"]})
+    puts "#{title} #{year} #{rating} #{studio["name"]}"
 end
+
+puts ""
+puts "Top Cast"
+puts "========"
+puts ""
+
+all_roles = Role.all
+
+for role in all_roles
+    title = movie["title"] #I think I need a where here 
+    performer = actor["name"]
+    character = role["character_name"]
+    puts "#{title} #{performer} #{role["character_name"]}"
+end
+
+# Batman Begins          Christian Bale        Bruce Wayne
+# Batman Begins          Michael Caine         Alfred
+# Batman Begins          Liam Neeson           Ra's Al Ghul
+# Batman Begins          Katie Holmes          Rachel Dawes
+# Batman Begins          Gary Oldman           Commissioner Gordon
+# The Dark Knight        Christian Bale        Bruce Wayne
+# The Dark Knight        Heath Ledger          Joker
+# The Dark Knight        Aaron Eckhart         Harvey Dent
+# The Dark Knight        Michael Caine         Alfred
+# The Dark Knight        Maggie Gyllenhaal     Rachel Dawes
+# The Dark Knight Rises  Christian Bale        Bruce Wayne
+# The Dark Knight Rises  Gary Oldman           Commissioner Gordon
+# The Dark Knight Rises  Tom Hardy             Bane
+# The Dark Knight Rises  Joseph Gordon-Levitt  John Blake
+# The Dark Knight Rises  Anne Hathaway         Selina Kyle
