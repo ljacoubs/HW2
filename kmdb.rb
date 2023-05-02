@@ -292,10 +292,12 @@ puts ""
 all_roles = Role.all
 
 for role in all_roles
-    title = movie["title"] #I think I need a where here 
-    performer = actor["name"]
-    character = role["character_name"]
-    puts "#{title} #{performer} #{role["character_name"]}"
+    # puts role["actor_id"]  
+    actor = Actor.find_by({"id" => role["actor_id"]})
+    # puts actor["name"]
+    movie = Movie.find_by({"id" => role["movie_id"]})
+    # character = role["character_name"]
+    puts "#{movie["title"]} #{actor["name"]} #{role["character_name"]}"
 end
 
 # Batman Begins          Christian Bale        Bruce Wayne
