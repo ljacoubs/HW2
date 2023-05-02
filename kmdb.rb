@@ -300,3 +300,4 @@ for role in all_roles
     puts "#{movie["title"]} #{actor["name"]} #{role["character_name"]}"
 end
 
+#must delete SQL data and re-migrate before running code 
