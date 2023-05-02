@@ -292,26 +292,11 @@ puts ""
 all_roles = Role.all
 
 for role in all_roles
-    # puts role["actor_id"]  
+     
     actor = Actor.find_by({"id" => role["actor_id"]})
-    # puts actor["name"]
+
     movie = Movie.find_by({"id" => role["movie_id"]})
-    # character = role["character_name"]
+
     puts "#{movie["title"]} #{actor["name"]} #{role["character_name"]}"
 end
 
-# Batman Begins          Christian Bale        Bruce Wayne
-# Batman Begins          Michael Caine         Alfred
-# Batman Begins          Liam Neeson           Ra's Al Ghul
-# Batman Begins          Katie Holmes          Rachel Dawes
-# Batman Begins          Gary Oldman           Commissioner Gordon
-# The Dark Knight        Christian Bale        Bruce Wayne
-# The Dark Knight        Heath Ledger          Joker
-# The Dark Knight        Aaron Eckhart         Harvey Dent
-# The Dark Knight        Michael Caine         Alfred
-# The Dark Knight        Maggie Gyllenhaal     Rachel Dawes
-# The Dark Knight Rises  Christian Bale        Bruce Wayne
-# The Dark Knight Rises  Gary Oldman           Commissioner Gordon
-# The Dark Knight Rises  Tom Hardy             Bane
-# The Dark Knight Rises  Joseph Gordon-Levitt  John Blake
-# The Dark Knight Rises  Anne Hathaway         Selina Kyle
